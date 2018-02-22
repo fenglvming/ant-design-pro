@@ -64,6 +64,7 @@ export default class SiderMenu extends PureComponent {
   render() {
     const { logo, collapsed, onCollapse, theme } = this.props;
     const { openKeys } = this.state;
+    const defaultProps = collapsed ? {} : { openKeys };
     return (
       <Sider
         trigger={null}
@@ -85,9 +86,9 @@ export default class SiderMenu extends PureComponent {
           key="Menu"
           mode="inline"
           handleOpenChange={this.handleOpenChange}
-          openKeys={collapsed ? [] : openKeys}
           onOpenChange={this.handleOpenChange}
           style={{ padding: '16px 0', width: '100%' }}
+          {...defaultProps}
         />
       </Sider>
     );
